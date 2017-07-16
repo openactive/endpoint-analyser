@@ -1,0 +1,22 @@
+{
+  "name": "implmentation-stats",
+  "version": "0.1.0",
+  "description": "Live standards adoption stats across current implementers",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "engines": {
+    "node": "4.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openactive/implementation-stats"
+  },
+  "keywords": ["OpenActive", "standards", "implementation"],
+  "author": "Nick Evans (http://www.nickevans.me)",
+  "license": "GPL"
+}

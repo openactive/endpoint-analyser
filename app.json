@@ -1,0 +1,7 @@
+{
+  "name": "OpenActive implementation stats",
+  "description": "Live standards adoption stats across current implementers",
+  "repository": "https://github.com/openactive/implementation-stats",
+  "logo": "https://www.openactive.io/assets/openactive-badge-large.png",
+  "keywords": ["OpenActive", "standards", "implementation"]
+}
