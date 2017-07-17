@@ -395,12 +395,12 @@ function clickOverview() {
 function activateProvider(title, dataUrl, init, elem) {
     $('#status').text("Fetching data...");
     console.log("Activating provider: " + title + "; " + dataUrl);
-    $.getJSON("http://localhost:5000/api?url=" + encodeURIComponent(dataUrl), function (localPropertyExample) {
+    $.getJSON("/api?url=" + encodeURIComponent(dataUrl), function (localPropertyExample) {
       if (init) {
         console.log("Activating provider: " + title + "; " + localPropertyExample.next);
           calculateAggregatePropertyUsage(localPropertyExample);
         } else {
-          $.getJSON("http://localhost:5000/api?count=true&url=" + encodeURIComponent(dataUrl), function (localPropertyListCount) {
+          $.getJSON("/api?count=true&url=" + encodeURIComponent(dataUrl), function (localPropertyListCount) {
 
 
             
