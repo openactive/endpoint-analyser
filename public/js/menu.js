@@ -128,8 +128,8 @@ function loadJSON(url, cb) {
     });
 }
 
-function gitHubGetForks(success) {
-    var url = 'https://api.github.com/repos/openactive/dataset-site-generator/forks?sort=stargazers';
+function getOpenActiveDatasets(success) {
+    var url = 'https://www.openactive.io/datasets/directory.json';
     loadJSON(url, function (jsonBody) {
         success(jsonBody);
     });
@@ -300,18 +300,14 @@ $(function() {
 
     $( "#data-user-section-list" ).each(function() {
       $( "#row-template" ).hide();
-      gitHubGetForks(function (body) {
+      getOpenActiveDatasets(function (body) {
           for(var i = 0; i < body.length; i++) {
-              console.log("Found: " + body[i].full_name );
-              if (body[i].stargazers_count >= 1) {
-                $.getJSON("https://raw.githubusercontent.com/" + body[i].full_name + "/master/metadata.json", function (metadata) {
-                   //Only continue if load successful, ignore failure
-                   console.log("Metadata for: " + metadata["dataset-site-url"] + " (Publish: " + metadata["publish"] + ")");
-                   if (metadata["publish"]) {
-                      addRow(metadata);
-                      activateProvider(metadata["title"], metadata["data-url"], true);
-                   }
-                });
+            var metadata = body[i];
+              console.log("Found: " + metadata.full_name );
+              console.log("Metadata for: " + metadata["dataset-site-url"] + " (Publish: " + metadata["publish"] + ")");
+              if (metadata["publish"]) {
+                addRow(metadata);
+                activateProvider(metadata["title"], metadata["data-url"], true);
               }
           }
       });
